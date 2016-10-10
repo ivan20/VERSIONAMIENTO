@@ -1,0 +1,40 @@
+create or replace
+PACKAGE
+/* $Header:: /PRODUCCION/PAQUETES/SPEC/YPKGMIGRACIONINTERNET2015_s.sql 3 1.1.2 02.08.16 16:05 PSADM                     $ */
+ YPKGMIGRACIONINTERNET2015
+AS
+  --Creado por Angel Salazar 11/05/2015  - PARA MIGRACION DE INTERNET PRY876
+  PROCEDURE PRD_PRINCIPAL(
+      PV_NOM_ARCHIVO VARCHAR2,
+      PV_OPCION      VARCHAR2,
+      PV_USER        VARCHAR2,
+      PV_PASSWORD    VARCHAR2);
+  PROCEDURE YPRD_MIGRAR_INT(
+      PV_NOM_ARCHIVO VARCHAR2,
+      PV_OPCION      VARCHAR2,
+      PV_USER        VARCHAR2,
+      PV_PASSWORD    VARCHAR2);
+  PROCEDURE YPRD_CADUCA_UPGRADE(
+	  pi_cparty_id        IN NUMBER,
+	  pi_cpartyaccount_id IN NUMBER,
+	  pi_citem_id         IN NUMBER);
+  FUNCTION FNVERIFICA_EXISTENCIA(
+    pi_cparty_id        IN NUMBER,
+    pi_cpartyaccount_id IN NUMBER,
+    pi_citem_id         IN NUMBER)
+  RETURN NUMBER;
+  FUNCTION FNVERIFICA_PROMO(
+    pi_cparty_id        IN NUMBER,
+    pi_cpartyaccount_id IN NUMBER,
+    pi_citem_id         IN NUMBER)
+  RETURN NUMBER;
+  FUNCTION FNVERIFICA_COMANDO(
+    PN_CPARTY_ID IN NUMBER,
+    PN_ROOTCITEM_ID IN NUMBER)
+  RETURN NUMBER;
+  FUNCTION YFNVERIFICA_UPGRADE(
+    pi_cparty_id        IN NUMBER,
+    pi_cpartyaccount_id IN NUMBER,
+    pi_citem_id         IN NUMBER)
+  RETURN NUMBER;
+END YPKGMIGRACIONINTERNET2015;
